@@ -9,6 +9,7 @@
 typedef struct t_game
 {
 	void	*mlx;
+	void	*win;
 }	t_game;
 
 #endif
