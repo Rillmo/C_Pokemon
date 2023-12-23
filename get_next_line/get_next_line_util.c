@@ -6,13 +6,13 @@
 /*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 00:55:38 by macbookpro        #+#    #+#             */
-/*   Updated: 2023/11/11 01:35:12 by macbookpro       ###   ########.fr       */
+/*   Updated: 2023/12/23 21:09:31 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+int	my_strlen(char *str)
 {
 	int	len;
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-void	*ft_calloc(int count, int size)
+void	*my_calloc(int count, int size)
 {
 	char	*result;
 	int		i;
@@ -39,7 +39,7 @@ void	*ft_calloc(int count, int size)
 	return ((void *)result);
 }
 
-char	*ft_strchr(char *str, char c)
+char	*my_strchr(char *str, char c)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ char	*ft_strchr(char *str, char c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *str1, char *str2)
+char	*my_strjoin(char *str1, char *str2)
 {
 	char	*result;
 	int		str1_len;
@@ -63,9 +63,9 @@ char	*ft_strjoin(char *str1, char *str2)
 	int		i;
 	int		j;
 
-	str1_len = ft_strlen(str1);
-	str2_len = ft_strlen(str2);
-	result = ft_calloc(sizeof(char), str1_len * 2 + str2_len + 1);
+	str1_len = my_strlen(str1);
+	str2_len = my_strlen(str2);
+	result = my_calloc(sizeof(char), str1_len * 2 + str2_len + 1);
 	if (result == NULL)
 		return (NULL);
 	i = 0;

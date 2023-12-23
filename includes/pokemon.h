@@ -26,6 +26,12 @@ typedef struct s_imgpack
 	void	*riverside_corner_down_left;
 	void	*riverside_corner_down_right;
 	void	*river;
+	void	*big_tree_top_right;
+	void	*big_tree_top_left;
+	void	*big_tree_mid_right;
+	void	*big_tree_mid_left;
+	void	*big_tree_bottom_right;
+	void	*big_tree_bottom_left;
 }	t_imgpack;
 
 typedef struct s_game

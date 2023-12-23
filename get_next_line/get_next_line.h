@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkim2 <junkim2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 23:35:56 by macbookpro        #+#    #+#             */
-/*   Updated: 2023/12/23 17:33:01 by junkim2          ###   ########.fr       */
+/*   Updated: 2023/12/23 21:08:48 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ typedef struct s_lst
 }	t_lst;
 
 char	*get_next_line(int fd);
-char	*alloc_double(t_list *lst);
+char	*alloc_double(t_lst *lst);
 int		my_strlen(char *str);
 void	*my_calloc(int count, int size);
 char	*my_strchr(char *str, char c);
 char	*my_strdup(char *s1);
-char	*err_handler(t_list *lst);
+char	*err_handler(t_lst *lst);
 
 #endif

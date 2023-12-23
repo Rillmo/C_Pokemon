@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkim2 <junkim2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 23:35:04 by macbookpro        #+#    #+#             */
-/*   Updated: 2023/11/12 02:32:23 by junkim2          ###   ########.fr       */
+/*   Updated: 2023/12/23 21:09:30 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*err_handler(t_list *lst)
+char	*err_handler(t_lst *lst)
 {
 	free(lst->buff);
 	lst->buff = NULL;
@@ -22,7 +22,7 @@ char	*err_handler(t_list *lst)
 	return (NULL);
 }
 
-void	ft_memmove(t_list *lst, int idx)
+void	my_memmove(t_lst *lst, int idx)
 {
 	int	i;
 
@@ -38,23 +38,23 @@ void	ft_memmove(t_list *lst, int idx)
 		lst->buff[i++] = 0;
 }
 
-char	*get_left(t_list *lst)
+char	*get_left(t_lst *lst)
 {
 	char	*result;
 	char	*pos;
 	int		len;
 	int		i;
 
-	pos = ft_strchr(lst->buff, '\n');
+	pos = my_strchr(lst->buff, '\n');
 	if (lst->flag == 1 && pos == NULL)
 	{
-		result = ft_strdup(lst->buff);
+		result = my_strdup(lst->buff);
 		if (result == NULL)
 			return (err_handler(lst));
 		return (result);
 	}
 	len = pos - lst->buff + 2;
-	result = (char *)ft_calloc(len, sizeof(char));
+	result = (char *)my_calloc(len, sizeof(char));
 	if (result == NULL)
 		return (err_handler(lst));
 	i = 0;
@@ -63,11 +63,11 @@ char	*get_left(t_list *lst)
 		result[i] = lst->buff[i];
 		i++;
 	}
-	ft_memmove(lst, i);
+	my_memmove(lst, i);
 	return (result);
 }
 
-char	*read_line(int fd, t_list *lst)
+char	*read_line(int fd, t_lst *lst)
 {
 	int		read_size;
 	char	*tmp;
@@ -81,7 +81,7 @@ char	*read_line(int fd, t_list *lst)
 	}
 	read_size = 0;
 	while (lst->total_size - lst->current_size >= BUFFER_SIZE && \
-ft_strchr(lst->buff, '\n') == NULL && lst->flag == 0)
+my_strchr(lst->buff, '\n') == NULL && lst->flag == 0)
 	{
 		read_size = read(fd, &(lst->buff[lst->current_size]), BUFFER_SIZE);
 		if (read_size < 0)
@@ -90,14 +90,14 @@ ft_strchr(lst->buff, '\n') == NULL && lst->flag == 0)
 		if (read_size == 0)
 			lst->flag = 1;
 	}
-	if (lst->flag == 0 && ft_strchr(lst->buff, '\n') == NULL)
+	if (lst->flag == 0 && my_strchr(lst->buff, '\n') == NULL)
 		return (read_line(fd, lst));
 	return (lst->buff);
 }
 
 char	*get_next_line(int fd)
 {
-	static t_list	arr[FD_LIMIT];
+	static t_lst	arr[FD_LIMIT];
 	char			*result;
 	char			*err_flag;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkim2 <junkim2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 23:35:56 by macbookpro        #+#    #+#             */
-/*   Updated: 2023/11/12 02:38:33 by junkim2          ###   ########.fr       */
+/*   Updated: 2023/12/23 21:09:28 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ typedef struct s_list
 	int		total_size;
 	int		current_size;
 	int		flag;
-}	t_list;
+}	t_lst;
 
 char	*get_next_line(int fd);
-char	*alloc_double(t_list *lst);
-int		ft_strlen(char *str);
-void	*ft_calloc(int count, int size);
-char	*ft_strchr(char *str, char c);
-char	*ft_strdup(char *s1);
-char	*err_handler(t_list *lst);
+char	*alloc_double(t_lst *lst);
+int		my_strlen(char *str);
+void	*my_calloc(int count, int size);
+char	*my_strchr(char *str, char c);
+char	*my_strdup(char *s1);
+char	*err_handler(t_lst *lst);
 
 #endif

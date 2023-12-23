@@ -1,6 +1,7 @@
 SRCS =	sources/main.c \
 		sources/render.c \
-		sources/read.c
+		sources/read.c \
+		sources/setting.c
 
 OBJS =	$(patsubst sources%, objects%, $(SRCS:.c=.o))
 
@@ -41,12 +42,14 @@ $(LIBFT) :
 
 clean :
 	@echo " [ cleaning so_long... ]"
-	@rm -f $(OBJS)
+	@make clean -s -C libft
+	@rm -f $(GNL_OBJS) $(OBJS)
 	@echo " [ so_long cleaned ] "
 
 fclean : clean
 	@echo " [ fcleaning so_long... ]"
-	@rm -f $(NAME)
+	@make fclean -s -C libft
+	@rm -f $(LIBFT) $(NAME)
 	@echo " [ so_long fcleaned ] "
 
 re :

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junkim2 <junkim2@student.42.fr>            +#+  +:+       +#+        */
+/*   By: macbookpro <macbookpro@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 00:55:38 by macbookpro        #+#    #+#             */
-/*   Updated: 2023/11/12 02:27:47 by junkim2          ###   ########.fr       */
+/*   Updated: 2023/12/23 21:09:34 by macbookpro       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+int	my_strlen(char *str)
 {
 	int	len;
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-void	*ft_calloc(int count, int size)
+void	*my_calloc(int count, int size)
 {
 	char	*result;
 	int		i;
@@ -41,7 +41,7 @@ void	*ft_calloc(int count, int size)
 	return ((void *)result);
 }
 
-char	*ft_strchr(char *str, char c)
+char	*my_strchr(char *str, char c)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ char	*ft_strchr(char *str, char c)
 	return (NULL);
 }
 
-char	*alloc_double(t_list *lst)
+char	*alloc_double(t_lst *lst)
 {
 	char	*result;
 	int		buff_len;
@@ -67,10 +67,10 @@ char	*alloc_double(t_list *lst)
 		lst->total_size = BUFFER_SIZE;
 	else
 		lst->total_size *= 2;
-	result = (char *)ft_calloc(lst->total_size + 1, sizeof(char));
+	result = (char *)my_calloc(lst->total_size + 1, sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	buff_len = ft_strlen(lst->buff);
+	buff_len = my_strlen(lst->buff);
 	i = 0;
 	while (i < buff_len)
 	{
@@ -81,14 +81,14 @@ char	*alloc_double(t_list *lst)
 	return (result);
 }
 
-char	*ft_strdup(char *s1)
+char	*my_strdup(char *s1)
 {
 	char	*copy;
 	int		origin_len;
 	int		i;
 
-	origin_len = ft_strlen(s1);
-	copy = (char *)ft_calloc(origin_len + 1, sizeof(char));
+	origin_len = my_strlen(s1);
+	copy = (char *)my_calloc(origin_len + 1, sizeof(char));
 	if (copy == 0)
 		return (0);
 	i = 0;
